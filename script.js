@@ -133,7 +133,6 @@ for (let i = 0; i < projectsDetailsBtns.length; i += 1) {
 
       desktopProjectPopupWindowImage.src = projectsArr[i].desktopFeaturedImage;
       desktopProjectPopupWindowName.innerHTML = projectsArr[i].desktopName;
-      desktopProjectPopupWindowTechnologies.innerHTML = '';
       for (let j = 0; j < projectsArr[i].desktopTechnologies.length; j += 1) {
         const technology = document.createElement('li');
         technology.textContent = projectsArr[i].desktopTechnologies[j];
@@ -184,11 +183,6 @@ const getParse = () => {
 };
 
 const stringifySet = () => {
-  const formData = {
-    name: nameElement.value,
-    email: emailElement.value,
-    message: textElement.value,
-  };
   const stringFormData = JSON.stringify(formData);
   const setted = localStorage.setItem('formData', stringFormData);
   return setted;
@@ -201,6 +195,11 @@ function setFormData() {
 }
 
 function createLocalStorageFormData() {
+  const formData = {
+    name: nameElement.value,
+    email: emailElement.value,
+    message: textElement.value,
+  };
   stringifySet();
   setFormData();
 }
